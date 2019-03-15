@@ -4,8 +4,8 @@ Building a WhatsApp UI Clone in Flutter.
 
 ### Show some :heart: and star the repo to support the project
 
-### Screenshots
-
+### IOS Screenshots
+<img src="./screenshot/ios/1.png" height="300em" /> <img src="./screenshot/ios/2.png" height="300em" /> <img src="./screenshot/ios/3.png" height="300em" /> <img src="./screenshot/ios/4.png" height="300em" /> <img src="./screenshot/ios/5.png" height="300em" />
 
 ### Created & Maintained By
 
