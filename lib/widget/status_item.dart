@@ -35,7 +35,7 @@ class StatusItemWidget extends StatelessWidget {
             style: TextStyle(
                 color: Colors.black,
                 fontWeight: FontWeight.w300,
-                fontSize: 15.0),
+                fontSize: 14.0),
           ),
         )
       ],
