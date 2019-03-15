@@ -30,8 +30,8 @@ Building a WhatsApp UI Clone in Flutter.
 
 In the command terminal, run the following commands:
 
-    $ git clone git@github.com:GeekyAnts/FlatApp-Flutter.git
-    $ cd FlatApp-Flutter/
+    $ git clone https://github.com/gssinghgautam/whatsapp_clone_flutter.git
+    $ cd whatsapp_clone_flutter/
     $ flutter run
 
 # Simulate for iOS
