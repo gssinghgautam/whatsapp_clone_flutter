@@ -25,11 +25,17 @@ class StatusItemWidget extends StatelessWidget {
           ),
           title: Text(
             statusModelList[index].name,
-            style: TextStyle(color: Colors.black, fontWeight: FontWeight.w500),
+            style: TextStyle(
+                color: Colors.black,
+                fontWeight: FontWeight.w500,
+                fontSize: 16.0),
           ),
           subtitle: Text(
             statusModelList[index].statusTime,
-            style: TextStyle(color: Colors.black, fontWeight: FontWeight.w300),
+            style: TextStyle(
+                color: Colors.black,
+                fontWeight: FontWeight.w300,
+                fontSize: 15.0),
           ),
         )
       ],

@@ -25,7 +25,9 @@ class CallsItemWidget extends StatelessWidget {
             ),
             title: Text(dummyCallData[index].name,
                 style: TextStyle(
-                    fontWeight: FontWeight.bold, color: Color(0xFF212121))),
+                    color: Colors.black,
+                    fontWeight: FontWeight.w500,
+                    fontSize: 16.0)),
             subtitle: Row(
               children: <Widget>[
                 Icon(
@@ -41,9 +43,9 @@ class CallsItemWidget extends StatelessWidget {
                   padding: const EdgeInsets.only(left: 4),
                   child: Text(dummyCallData[index].callTime,
                       style: TextStyle(
-                          fontWeight: FontWeight.normal,
-                          fontSize: 15.0,
-                          color: Color(0xFF757575))),
+                          color: Colors.black,
+                          fontWeight: FontWeight.w500,
+                          fontSize: 15.0)),
                 )
               ],
             ),

@@ -28,14 +28,16 @@ class ChatItemWidget extends StatelessWidget {
                 Text(
                   chatModelList[index].name,
                   style: TextStyle(
-                      fontWeight: FontWeight.bold, color: Color(0xFF212121)),
+                      color: Colors.black,
+                      fontWeight: FontWeight.w500,
+                      fontSize: 16.0),
                 ),
                 Text(
                   chatModelList[index].time,
                   style: TextStyle(
-                      fontWeight: FontWeight.normal,
-                      fontSize: 14.0,
-                      color: Color(0xFF757575)),
+                      color: Colors.black,
+                      fontWeight: FontWeight.w300,
+                      fontSize: 14.0),
                 )
               ],
             ),
@@ -44,9 +46,9 @@ class ChatItemWidget extends StatelessWidget {
               child: Text(
                 chatModelList[index].message,
                 style: TextStyle(
-                    fontWeight: FontWeight.normal,
-                    fontSize: 15.0,
-                    color: Color(0xFF757575)),
+                    color: Colors.black,
+                    fontWeight: FontWeight.w300,
+                    fontSize: 15.0),
               ),
             ),
           )
