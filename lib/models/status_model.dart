@@ -18,7 +18,7 @@ List<StatusModel> dummyStatusData = [
   StatusModel(
       name: "Nikhil",
       statusTime: 'Today, 9:12 PM',
-      avatarUrl: 'https://randomuser.me/api/portraits/women/46.jpg'),
+      avatarUrl: 'https://randomuser.me/api/portraits/men/46.jpg'),
   StatusModel(
       name: "Priya Sood",
       statusTime: 'Today, 6:35 PM',

@@ -27,7 +27,7 @@ List<ChatModel> dummyData = [
       name: "Kusum",
       message: "I'm good!",
       time: "10:30",
-      avatarUrl: "https://randomuser.me/api/portraits/men/4.jpg"),
+      avatarUrl: "https://randomuser.me/api/portraits/women/4.jpg"),
   new ChatModel(
       name: "Kishan Singh",
       message: "I'm the fastest man alive!",

@@ -19,8 +19,8 @@ class StatusItemWidget extends StatelessWidget {
           onTap: () => print('Clicked'),
           leading: CircleAvatar(
             radius: 24.0,
-            backgroundColor: Theme.of(context).primaryColor,
-            foregroundColor: Colors.grey,
+            backgroundColor: Colors.grey,
+            foregroundColor: Theme.of(context).primaryColor,
             backgroundImage: NetworkImage(statusModelList[index].avatarUrl),
           ),
           title: Text(

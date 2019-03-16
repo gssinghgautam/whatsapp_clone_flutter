@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:whatsapp_clone/helper/utils.dart';
 import '../models/status_model.dart';
 import '../widget/status_item.dart';
 
@@ -12,20 +13,22 @@ class StatusScreen extends StatelessWidget {
             onTap: () => print('Clicked'),
             leading: CircleAvatar(
               radius: 24.0,
-              backgroundColor: Theme.of(context).primaryColor,
-              foregroundColor: Colors.grey,
+              backgroundColor: Colors.grey,
+              foregroundColor: Theme.of(context).primaryColor,
               backgroundImage: NetworkImage(
                   'https://randomuser.me/api/portraits/men/43.jpg'),
             ),
             title: Text(
               "My Status",
-              style:
-                  TextStyle(color: Colors.black, fontWeight: FontWeight.w500),
+              style: TextStyle(
+                  color: Color(Utils.primaryTextColor()),
+                  fontWeight: FontWeight.w500),
             ),
             subtitle: Text(
               'Tap to add a status update',
-              style:
-                  TextStyle(color: Colors.black, fontWeight: FontWeight.w300),
+              style: TextStyle(
+                  color: Color(Utils.secondaryTextColor()),
+                  fontWeight: FontWeight.w400),
             ),
           ),
           Container(

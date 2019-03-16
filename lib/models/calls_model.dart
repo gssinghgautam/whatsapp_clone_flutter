@@ -42,13 +42,13 @@ List<CallsModel> dummyCallData = [
       callType: 'video'),
   new CallsModel(
       name: "Khushboo",
-      avatarUrl: "https://randomuser.me/api/portraits/men/6.jpg",
+      avatarUrl: "https://randomuser.me/api/portraits/women/6.jpg",
       callTime: "55 minutes ago",
       type: 'outgoing',
       callType: 'audio'),
   new CallsModel(
       name: "Kusum",
-      avatarUrl: "https://randomuser.me/api/portraits/men/7.jpg",
+      avatarUrl: "https://randomuser.me/api/portraits/women/7.jpg",
       callTime: "1 hour ago",
       type: 'incoming',
       callType: 'video')

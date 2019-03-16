@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:whatsapp_clone/helper/utils.dart';
 import '../models/calls_model.dart';
 
 class CallsItemWidget extends StatelessWidget {
-  List<CallsModel> callsModel;
+  final List<CallsModel> callsModel;
 
-  int index;
+  final int index;
 
   CallsItemWidget({this.callsModel, this.index});
 
@@ -25,7 +26,7 @@ class CallsItemWidget extends StatelessWidget {
             ),
             title: Text(dummyCallData[index].name,
                 style: TextStyle(
-                    color: Colors.black,
+                    color: Color(Utils.primaryTextColor()),
                     fontWeight: FontWeight.w500,
                     fontSize: 16.0)),
             subtitle: Row(
@@ -43,8 +44,8 @@ class CallsItemWidget extends StatelessWidget {
                   padding: const EdgeInsets.only(left: 4),
                   child: Text(dummyCallData[index].callTime,
                       style: TextStyle(
-                          color: Colors.black,
-                          fontWeight: FontWeight.w300,
+                          color: Color(Utils.secondaryTextColor()),
+                          fontWeight: FontWeight.w400,
                           fontSize: 14.0)),
                 )
               ],
@@ -52,9 +53,9 @@ class CallsItemWidget extends StatelessWidget {
             trailing: dummyCallData[index].callType == 'video'
                 ? Icon(
                     Icons.videocam,
-                    color: Color(0xFF128C7E),
+                    color: Theme.of(context).primaryColor,
                   )
-                : Icon(Icons.call, color: Color(0xFF128C7E)))
+                : Icon(Icons.call, color: Theme.of(context).primaryColor))
       ],
     );
   }

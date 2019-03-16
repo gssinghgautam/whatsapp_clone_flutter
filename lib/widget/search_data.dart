@@ -33,8 +33,8 @@ class DataSearch extends SearchDelegate<String> {
         ? dummyData
         : dummyData
             .where((chatModel) =>
-                chatModel.name.toLowerCase().contains(query.toLowerCase()) ||
-                chatModel.message.toLowerCase().contains(query.toLowerCase()))
+                chatModel.name.toLowerCase().startsWith(query.toLowerCase()) ||
+                chatModel.message.toLowerCase().startsWith(query.toLowerCase()))
             .toList();
 
     return ListView.builder(
@@ -42,6 +42,7 @@ class DataSearch extends SearchDelegate<String> {
       itemBuilder: (context, index) => ChatItemWidget(
             chatModelList: suggestionList,
             index: index,
+            query: query,
           ),
     );
   }

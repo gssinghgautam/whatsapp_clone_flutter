@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:whatsapp_clone/helper/utils.dart';
 import '../models/chat_model.dart';
 
 class ChatItemWidget extends StatelessWidget {
   final List<ChatModel> chatModelList;
   final int index;
+  final String query;
 
-  ChatItemWidget({this.chatModelList, this.index});
+  ChatItemWidget({this.chatModelList, this.index, this.query});
 
   @override
   Widget build(BuildContext context) => Column(
@@ -25,18 +27,39 @@ class ChatItemWidget extends StatelessWidget {
             title: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: <Widget>[
-                Text(
-                  chatModelList[index].name,
-                  style: TextStyle(
-                      color: Colors.black,
-                      fontWeight: FontWeight.w500,
-                      fontSize: 16.0),
-                ),
+                query != null && query.isNotEmpty
+                    ? RichText(
+                        text: TextSpan(
+                            text: chatModelList[index]
+                                .name
+                                .substring(0, query.length),
+                            style: TextStyle(
+                                color: Colors.blue,
+                                fontWeight: FontWeight.w400,
+                                fontSize: 16.0),
+                            children: [
+                              TextSpan(
+                                  text: chatModelList[index]
+                                      .name
+                                      .substring(query.length),
+                                  style: TextStyle(
+                                      color: Color(Utils.primaryTextColor()),
+                                      fontWeight: FontWeight.w400,
+                                      fontSize: 16.0))
+                            ]),
+                      )
+                    : Text(
+                        chatModelList[index].name,
+                        style: TextStyle(
+                            color: Color(Utils.primaryTextColor()),
+                            fontWeight: FontWeight.w500,
+                            fontSize: 16.0),
+                      ),
                 Text(
                   chatModelList[index].time,
                   style: TextStyle(
-                      color: Colors.black,
-                      fontWeight: FontWeight.w300,
+                      color: Color(Utils.secondaryTextColor()),
+                      fontWeight: FontWeight.w400,
                       fontSize: 14.0),
                 )
               ],
@@ -46,8 +69,8 @@ class ChatItemWidget extends StatelessWidget {
               child: Text(
                 chatModelList[index].message,
                 style: TextStyle(
-                    color: Colors.black,
-                    fontWeight: FontWeight.w300,
+                    color: Color(Utils.secondaryTextColor()),
+                    fontWeight: FontWeight.w400,
                     fontSize: 14.0),
               ),
             ),
