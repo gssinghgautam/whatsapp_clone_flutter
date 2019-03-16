@@ -19,8 +19,13 @@ Building a WhatsApp UI Clone in Flutter.
 >
 > * [PayPal](https://www.paypal.me/unikgamer/)
 
-
-
+## Features to come
+    1. Firebase Phone Auth
+    2. One To One Chat with Firebase
+    3. Image support in Chat
+    4. Video Support in Chat
+    5. Documents Support in Chat
+    
 
 ## Getting Started
 
