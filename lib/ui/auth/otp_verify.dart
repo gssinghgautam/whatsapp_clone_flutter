@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:whatsapp_clone/helper/constant.dart';
@@ -8,10 +9,22 @@ class OTPVerifyScreen extends StatefulWidget {
 }
 
 class _OTPVerifyScreenState extends State<OTPVerifyScreen> {
-  String phoneNumber = "+91 8130940149";
+  String phoneNumber = "";
+  String verificationCode;
+  TextEditingController _smsController;
+
+  @override
+  void initState() {
+    super.initState();
+    _smsController = new TextEditingController();
+  }
 
   @override
   Widget build(BuildContext context) {
+    final OtpScreenArgument args = ModalRoute.of(context).settings.arguments;
+    phoneNumber = args.phoneNumber;
+    verificationCode = args.verificationId;
+
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
@@ -76,10 +89,10 @@ class _OTPVerifyScreenState extends State<OTPVerifyScreen> {
                   maxLength: 6,
                   onChanged: (String value) {
                     if (value.length == 6) {
-                      Navigator.of(context).pushNamedAndRemoveUntil(
-                          '/home', ModalRoute.withName('/home'));
+                      _signInWithPhoneNumber();
                     }
                   },
+                  controller: _smsController,
                   textAlign: TextAlign.center,
                   keyboardType: TextInputType.number,
                   inputFormatters: <TextInputFormatter>[
@@ -160,4 +173,28 @@ class _OTPVerifyScreenState extends State<OTPVerifyScreen> {
       ),
     );
   }
+
+  void _signInWithPhoneNumber() async {
+    final AuthCredential credential = PhoneAuthProvider.getCredential(
+      verificationId: verificationCode,
+      smsCode: _smsController.text,
+    );
+
+    FirebaseAuth.instance
+        .signInWithCredential(credential)
+        .then((FirebaseUser user) {
+      if (user != null) {
+        print("User Id : ${user.uid}");
+        Navigator.of(context)
+            .pushNamedAndRemoveUntil('/home', ModalRoute.withName('/home'));
+      }
+    }).catchError((onError) => print(onError.toString()));
+  }
+}
+
+class OtpScreenArgument {
+  String phoneNumber;
+  String verificationId;
+
+  OtpScreenArgument({this.phoneNumber, this.verificationId});
 }

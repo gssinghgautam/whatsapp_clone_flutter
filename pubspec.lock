@@ -16,7 +16,7 @@ packages:
     source: hosted
     version: "1.0.4"
   camera:
-    dependency: "direct dev"
+    dependency: "direct main"
     description:
       name: camera
       url: "https://pub.dartlang.org"
@@ -44,7 +44,7 @@ packages:
     source: hosted
     version: "0.1.2"
   firebase_auth:
-    dependency: "direct dev"
+    dependency: "direct main"
     description:
       name: firebase_auth
       url: "https://pub.dartlang.org"
@@ -96,7 +96,7 @@ packages:
     source: hosted
     version: "1.4.0"
   pin_entry_text_field:
-    dependency: "direct dev"
+    dependency: "direct main"
     description:
       name: pin_entry_text_field
       url: "https://pub.dartlang.org"
@@ -164,7 +164,7 @@ packages:
     source: hosted
     version: "1.1.6"
   url_launcher:
-    dependency: "direct dev"
+    dependency: "direct main"
     description:
       name: url_launcher
       url: "https://pub.dartlang.org"

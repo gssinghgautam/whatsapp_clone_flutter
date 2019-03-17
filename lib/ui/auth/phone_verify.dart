@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:whatsapp_clone/helper/constant.dart';
 import 'package:whatsapp_clone/helper/utils.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:whatsapp_clone/ui/auth/otp_verify.dart';
 
 class VerifyPhoneScreen extends StatefulWidget {
   _VerifyPhoneScreenState createState() => _VerifyPhoneScreenState();
@@ -11,6 +13,10 @@ class _VerifyPhoneScreenState extends State<VerifyPhoneScreen> {
   String countryCode = "91";
   String phoneNumber;
   String countryName = 'India';
+  String verificationCode;
+  String smsCode;
+  bool isLoading = false;
+
   TextEditingController _phoneNumberEditingController,
       _countryCodeEditingController;
 
@@ -18,7 +24,7 @@ class _VerifyPhoneScreenState extends State<VerifyPhoneScreen> {
   void initState() {
     super.initState();
     _phoneNumberEditingController = TextEditingController(text: phoneNumber);
-    _countryCodeEditingController = TextEditingController(text: "91");
+    _countryCodeEditingController = TextEditingController(text: countryCode);
   }
 
   @override
@@ -145,6 +151,14 @@ class _VerifyPhoneScreenState extends State<VerifyPhoneScreen> {
               )
             ],
           ),
+          isLoading
+              ? Container(
+                  margin: const EdgeInsets.all(80.0),
+                  child: Center(
+                    child: CircularProgressIndicator(),
+                  ),
+                )
+              : Container(),
           Expanded(
             child: Padding(
               padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 20),
@@ -161,9 +175,9 @@ class _VerifyPhoneScreenState extends State<VerifyPhoneScreen> {
                       style: TextStyle(
                           color: Colors.white, fontWeight: FontWeight.w400),
                     ),
-                    onPressed: () => Navigator.of(context)
-                        .pushNamedAndRemoveUntil(
-                            '/otp', ModalRoute.withName('/otp')),
+                    onPressed: () {
+                      verifyPhone();
+                    },
                   )
                 ],
               ),
@@ -174,7 +188,59 @@ class _VerifyPhoneScreenState extends State<VerifyPhoneScreen> {
     );
   }
 
-  Future<void> verifyPhone() async {}
+  Future<void> verifyPhone() async {
+    final PhoneCodeAutoRetrievalTimeout autoRetrieve =
+        (String verificationCode) {
+      this.verificationCode = verificationCode;
+      print("PhoneCodeAutoRetrievalTimeout : $verificationCode");
+    };
+
+    final PhoneCodeSent smsCodeSent =
+        (String verificationId, [int forceCodeResend]) {
+      this.verificationCode = verificationId;
+      print("smsCodeSent : $verificationCode");
+      Navigator.of(context).pushNamedAndRemoveUntil(
+          '/otp', ModalRoute.withName('/otp'),
+          arguments: OtpScreenArgument(
+              phoneNumber:
+                  "+${_countryCodeEditingController.text}${_phoneNumberEditingController.text}",
+              verificationId: verificationCode));
+    };
+
+    final PhoneVerificationCompleted verficationSuccess = (FirebaseUser user) {
+      print('Verification Success ${user.uid}');
+    };
+
+    final PhoneVerificationFailed verificationFailed = (AuthException auth) {
+      showDialog(
+          context: context,
+          builder: (BuildContext context) {
+            return AlertDialog(
+              title: Text("Authentication Error?"),
+              content: Text(auth.message),
+              actions: <Widget>[
+                FlatButton(
+                  child: Text("OK"),
+                  onPressed: () => Navigator.of(context).pop(),
+                )
+              ],
+            );
+          });
+    };
+
+    setState(() {
+      isLoading = true;
+    });
+
+    await FirebaseAuth.instance.verifyPhoneNumber(
+        phoneNumber:
+            "+${_countryCodeEditingController.text}${_phoneNumberEditingController.text}",
+        timeout: const Duration(seconds: 5),
+        verificationCompleted: verficationSuccess,
+        verificationFailed: verificationFailed,
+        codeAutoRetrievalTimeout: autoRetrieve,
+        codeSent: smsCodeSent);
+  }
 
   @override
   void dispose() {
