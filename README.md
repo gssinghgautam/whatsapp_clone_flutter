@@ -19,9 +19,9 @@ Building a WhatsApp UI Clone in Flutter.
 [Gautam Kumar](https://github.com/gssinghgautam)
 ([Instagram](https://www.instagram.com/kunwar_gautam))
 
-> If you found this project helpful or you learned something from the source code and want to thank me, consider buying me a cup of :coffee:
->
-> * [PayPal](https://www.paypal.me/unikgamer/)
+    > If you found this project helpful or you learned something from the source code and want to thank me, consider buying me       a cup of :coffee:
+    >
+    > * [PayPal](https://www.paypal.me/unikgamer/)
 
 ## Features to come
     1. ~~Firebase Phone Auth~~
@@ -43,7 +43,7 @@ In the command terminal, run the following commands:
     $ cd whatsapp_clone_flutter/
     $ flutter run
 
-# Simulate for iOS
+## Simulate for iOS
 ### Method One
     
     Open the project in Xcode from ios/Runner.xcodeproj.
