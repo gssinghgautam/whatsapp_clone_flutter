@@ -2,19 +2,19 @@
 
 Building a WhatsApp UI Clone in Flutter.
 
-### Show some :heart: and star the repo to support the project
+## Show some :heart: and star the repo to support the project
 
-### IOS Screenshots
+## IOS Screenshots
 <img src="./screenshot/ios/1.png" height="300em" /> <img src="./screenshot/ios/2.png" height="300em" /> <img src="./screenshot/ios/3.png" height="300em" /> <img src="./screenshot/ios/4.png" height="300em" /> <img src="./screenshot/ios/5.png" height="300em" />
 
-### Android Screenshots
+## Android Screenshots
 <img src="./screenshot/android/7.png" height="300em" /> <img src="./screenshot/android/8.png" height="300em" />
 <img src="./screenshot/android/9.png" height="300em" /> <img src="./screenshot/android/1.png" height="300em" /> 
 <img src="./screenshot/android/2.png" height="300em" /> <img src="./screenshot/android/3.png" height="300em" /> 
 <img src="./screenshot/android/4.png" height="300em" /> <img src="./screenshot/android/5.png" height="300em" /> 
 <img src="./screenshot/android/camera.png" height="300em" />
 
-### Created & Maintained By
+## Created & Maintained By
 
 [Gautam Kumar](https://github.com/gssinghgautam)
 ([Instagram](https://www.instagram.com/kunwar_gautam))
@@ -35,7 +35,7 @@ Building a WhatsApp UI Clone in Flutter.
 
 **Note:** Make sure your Flutter environment is setup.
 
-#### Installation
+### Installation
 
 In the command terminal, run the following commands:
 
@@ -44,12 +44,12 @@ In the command terminal, run the following commands:
     $ flutter run
 
 # Simulate for iOS
-#### Method One
+### Method One
     
     Open the project in Xcode from ios/Runner.xcodeproj.
     Hit the play button.
 
-#### Method Two
+### Method Two
 
     Run the following command in your terminal.
     $ open -a Simulator
