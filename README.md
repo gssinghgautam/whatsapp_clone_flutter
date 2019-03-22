@@ -67,7 +67,7 @@ In the command terminal, run the following commands:
     Run the following command in your terminal.
     $ flutter run -d all
 
-# License
+## License
 
     MIT License
 
