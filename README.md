@@ -2,6 +2,8 @@
 
 Building a WhatsApp UI Clone in Flutter.
 
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/c88e699dfbf54c0f830107513231c113)](https://www.codacy.com/app/gssinghgautam/whatsapp_clone_flutter?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=gssinghgautam/whatsapp_clone_flutter&amp;utm_campaign=Badge_Grade)
+
 ## Show some :heart: and star the repo to support the project
 
 ## IOS Screenshots
